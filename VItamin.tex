@@ -1,0 +1,133 @@
+%% Template for a preprint Letter or Article for submission
+%% to the journal Nature.
+%%
+
+\documentclass[%
+%superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+showpacs,
+%preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+ twocolumn,
+ prl,
+ reprint,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+floatfix,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{lineno}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{acronym}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{hyperref}
+%\usepackage{booktabs}
+
+\hypersetup{
+%--- fill inside borders ---
+  colorlinks=true,        % false: boxed links; true: colored links
+  linkcolor=black,         % color of internal links
+  citecolor=cyan,         % color of links to bibliography
+}
+
+%% ----- comment commands for each of us
+\newcommand{\chris}[1]{\textbf{\textcolor{red}{CHRIS: #1}}}
+\newcommand{\francesco}[1]{\textbf{\textcolor{green}{FRANCESCO: #1}}}
+\newcommand{\hunter}[1]{\textbf{\textcolor{blue}{HUNTER: #1}}}
+\newcommand{\siong}[1]{\textbf{\textcolor{cyan}{SIONG: #1}}}
+\newcommand{\rod}[1]{\textbf{\textcolor{yellow}{ROD: #1}}}
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{VItamin: an in-depth analysis of the tool used for gravitational wave Bayesian parameter estimation}
+
+\author{Hunter Gabbard$^1$}
+ \email{Corresponding author: h.gabbard.1@research.gla.ac.uk}
+\author{Chris Messenger$^1$}
+\author{Ik Siong Heng$^1$}
+\author{Francesco Tonolini$^2$}
+\author{Roderick Murray-Smith$^2$}
+
+\affiliation{
+ SUPA, School of Physics and Astronomy$^1$, \\
+ University of Glasgow, \\
+ Glasgow G12 8QQ, United Kingdom \\ \\
+ School of Computing Science$^2$, \\
+ University of Glasgow, \\
+ Glasgow G12 8QQ, United Kingdom \\
+}
+
+\date{\today}
+
+\maketitle
+
+% TO-DO LIST
+%
+% 1. Get abstract word count roughly correct - currently 195 (done)
+% 2. Get total word count roughly correct - currently (195, 680, 960, 620) =
+% 2455
+% 3. Clean captions and check word count (done)
+% 4. Fix all plots (done)
+% 5. Tidy Methods section (done)
+% 6. Polish language throughout (done)
+% 7. Check acronyms for consistency
+% 8. Check names and variables for consistency (KL, VItamin, etc...)
+% 9. Fix references - check limit
+% 10. Maybe change title
+% 11. Maybe add extra plots to methods section
+% 12. Do a spell check (done)
+% 13. Fix acknowledgments (done)
+% 14. Clean codes and add ref to github
+
+\acrodef{GW}[GW]{Gravitational wave}
+\acrodef{BBH}[BBH]{binary black hole}
+\acrodef{EM}[EM]{electromagnetic}
+\acrodef{CBC}[CBC]{compact binary coalescence}
+\acrodef{BNS}[BNS]{binary neutron star}
+\acrodef{NSBH}[NSBH]{neutron star black hole}
+\acrodef{PSD}[PSD]{power spectral density}
+\acrodef{ELBO}[ELBO]{evidence lower bound}
+\acrodef{LIGO}[LIGO]{advanced Laser Interferometer Gravitational wave Observatory}
+\acrodef{CVAE}[CVAE]{conditional variational autoencoder}
+\acrodef{KL}[KL]{Kullback--§Leibler}
+\acrodef{GPU}[GPU]{graphics processing unit}
+\acrodef{LVC}[LVC]{LIGO-Virgo Collaboration}
+\acrodef{PP}[p-p]{probability-probability}
+
+%
+% Introductory paragraph describing the content of the letter
+%
+% This format begins with a title of, at most, 15 words, followed by an
+% introductory paragraph (not abstract) of approximately 150 words, summarizing
+% the background, rationale, main results (introduced by "Here we show" or some
+% equivalent phrase) and implications of the study. This paragraph should be
+% referenced, as in Nature style, and should be considered part of the main
+% text, so that any subsequent introductory material avoids too much redundancy
+% with the introductory paragraph.
+%
+
+
+\bibliographystyle{apsrev4-1}
+\bibliography{references}% Produces the bibliography via BibTeX.
+
+\end{document}
