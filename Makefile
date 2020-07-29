@@ -1,10 +1,6 @@
-DOCS = VItamin.pdf
+DOCS = VItamin_technical.pdf
 
-FIGS = ./corner_testcase0.png \
-       ./hist-kl.png \
-       ./inv_losses_log.png \
-       ./network_setup.png \
-       ./latest_pp_plot.png
+FIGS = 
 
 TABLES = 
 
@@ -19,7 +15,7 @@ default: git-tag $(DOCS) $(FIGS)
 git-tag:
 	./git-tag.sh
 
-VItamin.pdf: VItamin.tex $(FIGS) $(TABLES) $(BIBLIO)
+VItamin_technical.pdf: VItamin_technical.tex $(FIGS) $(TABLES) $(BIBLIO)
 	pdflatex $(@:.pdf=) && bibtex $(@:.pdf=) && pdflatex $(@:.pdf=) && pdflatex $(@:.pdf=) && pdflatex $(@:.pdf=)
 
 clean:

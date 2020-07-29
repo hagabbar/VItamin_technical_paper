@@ -1,0 +1,224 @@
+%% Template for a preprint Letter or Article for submission
+%% to the journal Nature.
+%%
+
+\documentclass[%
+%superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+showpacs,
+%preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+ twocolumn,
+ prl,
+ reprint,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+floatfix,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{lineno}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{acronym}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{hyperref}
+%\usepackage{booktabs}
+
+\hypersetup{
+%--- fill inside borders ---
+  colorlinks=true,        % false: boxed links; true: colored links
+  linkcolor=black,         % color of internal links
+  citecolor=cyan,         % color of links to bibliography
+}
+
+%% ----- comment commands for each of us
+\newcommand{\chris}[1]{\textbf{\textcolor{red}{CHRIS: #1}}}
+\newcommand{\francesco}[1]{\textbf{\textcolor{green}{FRANCESCO: #1}}}
+\newcommand{\hunter}[1]{\textbf{\textcolor{blue}{HUNTER: #1}}}
+\newcommand{\siong}[1]{\textbf{\textcolor{cyan}{SIONG: #1}}}
+\newcommand{\rod}[1]{\textbf{\textcolor{yellow}{ROD: #1}}}
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{VItamin: an in-depth analysis of the tool used for gravitational wave Bayesian parameter estimation}
+
+\author{Hunter Gabbard$^1$}
+ \email{Corresponding author: h.gabbard.1@research.gla.ac.uk}
+\author{Chris Messenger$^1$}
+\author{Ik Siong Heng$^1$}
+\author{Francesco Tonolini$^2$}
+\author{Roderick Murray-Smith$^2$}
+
+\affiliation{
+ SUPA, School of Physics and Astronomy$^1$, \\
+ University of Glasgow, \\
+ Glasgow G12 8QQ, United Kingdom \\ \\
+ School of Computing Science$^2$, \\
+ University of Glasgow, \\
+ Glasgow G12 8QQ, United Kingdom \\
+}
+
+\date{\today}
+
+\begin{abstract}
+abstract
+\end{abstract}
+
+\maketitle
+
+% TO-DO LIST
+%
+
+\acrodef{GW}[GW]{Gravitational wave}
+\acrodef{BBH}[BBH]{binary black hole}
+\acrodef{EM}[EM]{electromagnetic}
+\acrodef{CBC}[CBC]{compact binary coalescence}
+\acrodef{BNS}[BNS]{binary neutron star}
+\acrodef{NSBH}[NSBH]{neutron star black hole}
+\acrodef{PSD}[PSD]{power spectral density}
+\acrodef{ELBO}[ELBO]{evidence lower bound}
+\acrodef{LIGO}[LIGO]{advanced Laser Interferometer Gravitational wave Observatory}
+\acrodef{CVAE}[CVAE]{conditional variational autoencoder}
+\acrodef{KL}[KL]{Kullback--§Leibler}
+\acrodef{GPU}[GPU]{graphics processing unit}
+\acrodef{LVC}[LVC]{LIGO-Virgo Collaboration}
+\acrodef{PP}[p-p]{probability-probability}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+\begin{itemize}
+\item The state of the GW field and the ongoing detections
+\item GW PE is a key aspect of GW astrophysics
+\item ML is rapidly becoming more and more relevant
+\item Here is the what this paper is all about
+\item Here is the paper structure
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{VItamin}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{What is a conditional variational autoencoder?}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The specific implementation for VItamin}
+
+\begin{itemize}
+\item Descriptions and systematic studies related to each component of the
+network.
+\item What is the latent space? What does it look like?
+\item Does the ELBO have a meaning?
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The training process}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The testing process - application to data}
+
+\begin{itemize}
+\item lots of benchmarking for speed and memory usage
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The baseline configuration}
+
+\begin{itemize}
+\item Use this time to define a baseline version of VItamin that will serve as
+the benchmark for all subsequent tests
+\item I advise a BBH case at 2kHz sampling using 4 sec segments and the full 15
+dimensional parameter space for 3 detectors.
+\item Show some example results
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{New developments}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Importance sampling}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Application of CVAE in different scenarios}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Gaussian vs. Non-Gaussian noise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Waveform systematics}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Transfer learning - changing PSD}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{conditional on the PSD}
+
+\begin{itemize}
+\item We can add PSD parameters to the $x$-vector and infer them, or...
+\item We can add PSD parameters to the $y$-vector and feed them in at testing
+time so you get an answer conditional on the PSD you choose.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{O2 events}
+
+\begin{itemize}
+\item This section could be a separate paper.
+\item We provide results for all O2 BBH detections.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions}
+
+\begin{itemize}
+\item Summarise the paper
+\item Highlight the best parts
+\item Highlight the worst parts
+\item End on a positive note.
+\end{itemize}
+
+\bibliographystyle{apsrev4-1}
+\bibliography{references}% Produces the bibliography via BibTeX.
+
+\end{document}
